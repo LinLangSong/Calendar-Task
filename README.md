@@ -1,7 +1,6 @@
 # Calendar-Task
 
-第一次写开发文档，这是一个节日查询和任务提醒系统
-（Eclipse拖出来的 界面邮电丑陋）
+第一次写开发文档，这是一个万年历+通讯录+任务/生日提醒系统
 
 功能描述：
 (1)日历、月历功能：界面能够显示日历和月历，默认为当月的月历。能够通过上下翻页查询每月的月历。
@@ -12,47 +11,19 @@
 需求：
 JAVA , JDK , Eclipse , mysql 5.1.72 , mysl connector J(扩展库)
 
-概要：
+代码结构：
 Dao类函数为修改、添加、删除数据库操作的函数。
 Model类函数为定义各项数据的属性、构造方法以及对类内数据的获取（get）和设置（set）。
 View类函数为写‘我的联系人’、‘我的事务’、‘日历查询’及主界面的函数，同时包括监听的函数，监视鼠标的动作进行一系列动作，如‘查询所有联系人’即会弹窗显示所有录入的联系人的信息。由于‘我的联系人’和‘我的事务’两个界面的大小可以改变会导致界面中标签位置错序，所以锁定住了其大小。
 
-代码结构：
-  AffairDao.java
-‘我的事务’对数据库的操作
+Runner.java
+启动主界面的函数
 
-  AffairModel.java
-‘我的事务’中数据的属性以及构造方法
+DateStd.java
+把 数字 转成 标准日期格式 的函数
 
-  AffairView.java
-‘我的事务’界面，包括 标签 、 按钮 、 文本框
+RemindService.java
+判断当天是否有未完成的事务和是否有联系人过生日，如果有，则弹窗提醒
 
-  CalendarModel.java
-‘日历查询’中数据的属性以及构造方法
-
-  CalendarView.java
-‘日历查询’界面，包括 标签 、 按钮 、 文本框
-
-  PersonDao.java
-    ‘我的联系人’对数据库的操作
-
-  PersonModel.java
-‘我的联系人’中数据的属性以及构造方法
-
-  PersonView.java
-‘我的联系人’界面，包括 标签 、 按钮 、 文本框
-
-  Runner.java
-  启动主界面的函数
-
-  RunnerView.java
-  主界面及启动三个副界面，包括 标签 、 按钮 、 文本框
-
-  DateStd.java
-  把 数字 转成 标准日期格式 的函数
-
-  RemindService.java
-  判断当天是否有未完成的事务和是否有联系人过生日，如果有，则弹窗提醒
-
-  MysqlConnect.java
-  链接mysql的函数
+MysqlConnect.java
+链接mysql的函数
